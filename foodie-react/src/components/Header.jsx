@@ -1,0 +1,58 @@
+export default function Header({ isNavActive, isHeaderSticky, onToggleNav, onCloseNav, onToggleSearch }) {
+  return (
+    <header className={`header${isHeaderSticky ? ' active' : ''}`} data-header>
+      <div className="container">
+
+        <h1>
+          <a href="#" className="logo">Foodie<span className="span">.</span></a>
+        </h1>
+
+        <nav className={`navbar${isNavActive ? ' active' : ''}`} data-navbar>
+          <ul className="navbar-list">
+
+            <li className="nav-item">
+              <a href="#home" className="navbar-link" data-nav-link onClick={onCloseNav}>Home</a>
+            </li>
+
+            <li className="nav-item">
+              <a href="#about" className="navbar-link" data-nav-link onClick={onCloseNav}>About Us</a>
+            </li>
+
+            <li className="nav-item">
+              <a href="#food-menu" className="navbar-link" data-nav-link onClick={onCloseNav}>Shop</a>
+            </li>
+
+            <li className="nav-item">
+              <a href="#blog" className="navbar-link" data-nav-link onClick={onCloseNav}>Blog</a>
+            </li>
+
+            <li className="nav-item">
+              <a href="#" className="navbar-link" data-nav-link onClick={onCloseNav}>Contact Us</a>
+            </li>
+
+          </ul>
+        </nav>
+
+        <div className="header-btn-group">
+          <button className="search-btn" aria-label="Search" data-search-btn onClick={onToggleSearch}>
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+          <button className="btn btn-hover">Reservation</button>
+
+          <button
+            className={`nav-toggle-btn${isNavActive ? ' active' : ''}`}
+            aria-label="Toggle Menu"
+            data-menu-toggle-btn
+            onClick={onToggleNav}
+          >
+            <span className="line top"></span>
+            <span className="line middle"></span>
+            <span className="line bottom"></span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+  )
+}
